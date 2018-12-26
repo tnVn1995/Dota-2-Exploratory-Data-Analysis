@@ -8,18 +8,18 @@ Created on Sun Oct 28 23:06:51 2018
 For this project, we will import data from opendota.com, 
 which is a website that collects data from dota2 matches."""
 "import necessary libraries for our data mining task."
+import settings
 import pandas as pd
 import certifi
 import json
 import urllib3
 """ we'll use url request to get our data """
 http = urllib3.PoolManager(cert_reqs='CERT_REQUIRED', ca_certs=certifi.where())
-api_key='2eb6fef1-70cd-47ae-bda3-f5a78f8beb03'
-#url = http.request('GET', 'https://api.opendota.com/api/matches/{}?api_key=2eb6fef1-70cd-47ae-bda3-f5a78f8beb03')
+forecast = forecastio.load_forecast(settings.API_KEY, 37.77493, -122.41942)
+api_key=API_KEY
+
 urllib3.disable_warnings()
-url1 = 'https://api.opendota.com/api/matches/{}?api_key=2eb6fef1-70cd-47ae-bda3-f5a78f8beb03'
-#url2 = 'https://api.opendota.com/api/matches/3907772517?api_key=2eb6fef1-70cd-47ae-bda3-f5a78f8beb03'
-#meta_data = json.loads(url.data)
+url1 = 'https://api.opendota.com/api/matches/{}?api_key=API_KEY'
 
 "getting my match ids from a file I gathered beforehand and put them in listIDs"
 matchIDs=pd.read_csv('matchIDs.csv')
